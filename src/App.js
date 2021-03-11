@@ -12,11 +12,33 @@ class App extends React.Component{
     notes:[]
     }
   }
+  callback(text){
+    this.setState((prevState) => {
+      const note = {
+        id: Date.now(),
+        text: text,
+        time: new Date().toDateString(),
+      };
+      return {
+        notes: [...prevState.notes, note],
+      };
+    });
+  }
+  deleteUser(index) {
+    if(window.confirm("Are you sure want to delete?")){
+      this.state.notes.splice(index, 1)
+      this.setState({ notes: this.state.notes })
+      console.log(index)
+    }  
+  }
   render(){
     return (
       <div>
-        <UserForm/>
-        <ListNote notes={this.state.notes}/>
+        <UserForm callback={(text,title)=>{this.callback(text,title)}}/>
+        <ListNote 
+          notes={this.state.notes}
+          onDelete={(index) => { this.deleteUser(index)}}
+        />
       </div>
     )
   }
