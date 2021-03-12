@@ -3,6 +3,9 @@ import './App.css';
 import React from 'react';
 import UserForm from './components/UserForm';
 import ListNote from './components/ListNote';
+import Modal from "react-modal";
+import ModalNotes from './components/ModalComponent'
+
 
 
 class App extends React.Component{
@@ -12,11 +15,12 @@ class App extends React.Component{
     notes:[]
     }
   }
-  callback(text){
+  callback(text, title){
     this.setState((prevState) => {
       const note = {
         id: Date.now(),
         text: text,
+        title: title,
         time: new Date().toDateString(),
       };
       return {
@@ -39,6 +43,7 @@ class App extends React.Component{
           notes={this.state.notes}
           onDelete={(index) => { this.deleteUser(index)}}
         />
+       
       </div>
     )
   }

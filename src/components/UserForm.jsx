@@ -7,22 +7,40 @@ class UserForm extends Component {
     super(props);
     this.state = {
       text: "",
+      title: "",
       notes: [],
     };
   }
   formSubmit(event) {
     event.preventDefault();
-    this.props.callback(this.state.text)
-  
+    this.props.callback(this.state.text, this.state.title);
+    this.state.text = ""
+    this.state.title = "";
   }
   changeInput(value) {
-    this.setState({ text: value });
+    this.setState({ text: value, title: this.state.title });
   }
-
+  changeInputTitle(value) {
+    this.setState({ title: value,text:this.state.text });
+  }
   render() {
     return (
       <div>
         <form onSubmit={(event) => this.formSubmit(event)}>
+          <div>
+            <div>
+              <label htmlFor="title">
+                <textarea
+                  type="text"
+                  name="title"
+                  id="title"
+                  value={this.state.title}
+                  onChange={(event) => this.changeInputTitle(event.target.value)}
+                ></textarea>
+              </label>
+            </div>
+          </div>
+
           <div>
             <label htmlFor="name">
               <textarea
