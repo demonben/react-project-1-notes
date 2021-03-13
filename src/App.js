@@ -1,10 +1,8 @@
 import './App.css';
-// import MyComponent from './components/component'
 import React from 'react';
 import UserForm from './components/UserForm';
 import ListNote from './components/ListNote';
-import Modal from "react-modal";
-import ModalNotes from './components/ModalComponent'
+
 
 
 
@@ -21,7 +19,7 @@ class App extends React.Component{
         id: Date.now(),
         text: text,
         title: title,
-        time: new Date().toDateString(),
+        time: new Date()+""
       };
       return {
         notes: [...prevState.notes, note],
@@ -38,6 +36,7 @@ class App extends React.Component{
   }
     
   editNote(editedNote) {
+    console.log(editedNote)
     this.setState((prevState) => {
       return {
         notes: prevState.notes.map((note) => {

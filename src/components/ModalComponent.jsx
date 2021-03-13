@@ -14,16 +14,16 @@ function ModalNotes(props) {
   const changeNote = (value) => {
     const editNote = props.modalNotes.note;
     editNote.title = value
-    console.log(value);
     editNote.editTime = new Date().toDateString()
       props.onChangeNote(editNote);
   }
   const changeNoteText = (value) => {
     const editNoteText = props.modalNotes.note;
     editNoteText.text = value;
-    console.log(value);
-    editNoteText.editTime = new Date().toDateString();
+    // console.log(new Date());
+    editNoteText.editTime = new Date()+'';
     props.onChangeNote(editNoteText);
+    // console.log(editNoteText);
   };
 
   return (
@@ -31,9 +31,9 @@ function ModalNotes(props) {
       <button onClick={() => setModalIsOpen(true)}>open modal</button>
       <Modal isOpen={modalIsOpen}>
         <div>{props.modalNotes.note.time}</div>
-       
 
         <div>
+          <p>{}</p>
           <label htmlFor="noteChange">
             <textarea
               name="noteChange"
@@ -69,7 +69,6 @@ function ModalNotes(props) {
           </button>
           <button
             onClick={() => {
-            
               changeNote(expValue);
               changeNoteText(expValueText);
               setModalIsOpen(false);

@@ -12,7 +12,7 @@ class ListNote extends React.Component {
       <ul className="unList">
         {this.props.notes.map((note, index) =>
           <Item
-            onChangeNote={(value) => { this.props.onChangeNote(value); { console.log(value) }}}
+            onChangeNote={(value) => { this.props.onChangeNote(value)}}
             key={note.id}
             note={note}
             index={index}
