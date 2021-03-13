@@ -31,8 +31,7 @@ function ModalNotes(props) {
       <button onClick={() => setModalIsOpen(true)}>open modal</button>
       <Modal isOpen={modalIsOpen}>
         <div>{props.modalNotes.note.time}</div>
-        {/* <div>{props.modalNotes.note.title}</div>
-        <div>{props.modalNotes.note.text}</div> */}
+       
 
         <div>
           <label htmlFor="noteChange">
