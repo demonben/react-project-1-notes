@@ -25,18 +25,18 @@ class UserForm extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="form">
         <form onSubmit={(event) => this.formSubmit(event)}>
           <div>
             <div>
               <label htmlFor="title">
-                <textarea
+                <input
                   type="text"
                   name="title"
                   id="title"
                   value={this.state.title}
                   onChange={(event) => this.changeInputTitle(event.target.value)}
-                ></textarea>
+                ></input>
               </label>
             </div>
           </div>

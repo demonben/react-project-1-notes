@@ -15,7 +15,7 @@ class App extends React.Component{
     notes:[]
     }
   }
-  callback(text, title){
+  addNote(text, title){
     this.setState((prevState) => {
       const note = {
         id: Date.now(),
@@ -28,20 +28,36 @@ class App extends React.Component{
       };
     });
   }
-  deleteUser(index) {
+  deleteNote(index) {
     if(window.confirm("Are you sure want to delete?")){
       this.state.notes.splice(index, 1)
       this.setState({ notes: this.state.notes })
       console.log(index)
     }  
+
+  }
+    
+  editNote(editedNote) {
+    this.setState((prevState) => {
+      return {
+        notes: prevState.notes.map((note) => {
+          if (note.id === editedNote.id) {
+            return editedNote;
+          } else {
+            return note;
+          }
+        }),
+      };
+    });
   }
   render(){
     return (
       <div>
-        <UserForm callback={(text,title)=>{this.callback(text,title)}}/>
+        <UserForm callback={(text,title)=>{this.addNote(text,title)}}/>
         <ListNote 
+          onChangeNote={(value) => { this.editNote(value) }}
           notes={this.state.notes}
-          onDelete={(index) => { this.deleteUser(index)}}
+          onDelete={(index) => { this.deleteNote(index)}}
         />
        
       </div>
