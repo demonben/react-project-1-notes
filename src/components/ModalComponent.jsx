@@ -20,10 +20,8 @@ function ModalNotes(props) {
   const changeNoteText = (value) => {
     const editNoteText = props.modalNotes.note;
     editNoteText.text = value;
-    // console.log(new Date());
     editNoteText.editTime = new Date()+'';
     props.onChangeNote(editNoteText);
-    // console.log(editNoteText);
   };
 
   return (

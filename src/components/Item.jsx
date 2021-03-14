@@ -3,9 +3,7 @@ import ModalNotes from "./ModalComponent";
 function Item(props) {
   const { note } = props;
   const { text, time, title, editTime } = note;
-  {
-    // console.log(props);
-  }
+
   return (
     <li className="note">
       <p>{"Created: "}{time}</p>
@@ -19,7 +17,6 @@ function Item(props) {
       <ModalNotes
         onChangeNote={(value) => {
           props.onChangeNote(value);
-          // {console.log(value)}
         }}
         modalNotes={props}
         onChange={(value) => alert(value)}

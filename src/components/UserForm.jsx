@@ -1,6 +1,4 @@
-import { render } from "@testing-library/react";
 import React, { Component } from "react";
-import ListNote from "./ListNote";
 
 class UserForm extends Component {
   constructor(props) {
@@ -14,8 +12,10 @@ class UserForm extends Component {
   formSubmit(event) {
     event.preventDefault();
     this.props.callback(this.state.text, this.state.title);
-    this.state.text = ""
-    this.state.title = "";
+    this.setState({
+      text : "",
+    title : ""})
+    
   }
   changeInput(value) {
     this.setState({ text: value, title: this.state.title });
@@ -36,7 +36,7 @@ class UserForm extends Component {
                   id="title"
                   value={this.state.title}
                   onChange={(event) => this.changeInputTitle(event.target.value)}
-                ></input>
+                ></input  >
               </label>
             </div>
           </div>
