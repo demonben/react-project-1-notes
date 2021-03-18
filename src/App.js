@@ -4,8 +4,6 @@ import UserForm from './components/UserForm';
 import ListNote from './components/ListNote';
 
 
-
-
 class App extends React.Component{
   constructor(props) {
     super(props);
@@ -22,7 +20,7 @@ class App extends React.Component{
         time: new Date()+""
       };
       return {
-        notes: [...prevState.notes, note],
+        notes: [...prevState.notes, note]
       };
     });
   }
@@ -30,7 +28,6 @@ class App extends React.Component{
     if(window.confirm("Are you sure want to delete?")){
       this.state.notes.splice(index, 1)
       this.setState({ notes: this.state.notes })
-      console.log(index)
     }  
 
   }
