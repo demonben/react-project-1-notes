@@ -12,6 +12,7 @@ class UserForm extends Component {
   formSubmit(event) {
     event.preventDefault();
     this.props.callback(this.state.text, this.state.title);
+    
     this.setState({
       text : "",
     title : ""})

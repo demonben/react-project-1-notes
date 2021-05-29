@@ -49,7 +49,8 @@ class App extends React.Component{
   render(){
     return (
       <div>
-        <UserForm callback={(text,title)=>{this.addNote(text,title)}}/>
+        <UserForm 
+        callback={(text,title)=>{this.addNote(text,title)}}/>
         <ListNote 
           onChangeNote={(value) => { this.editNote(value) }}
           notes={this.state.notes}
