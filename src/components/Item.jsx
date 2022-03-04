@@ -6,9 +6,12 @@ function Item(props) {
 
   return (
     <li className="note">
-      <p>{"Created: "}{time}</p>
-      <p>{text}</p>
+      <p>
+        {"Created: "}
+        {time}
+      </p>
       <p>{title}</p>
+      <p>{text}</p>
       <p>
         {"Edited: "}
         {editTime}

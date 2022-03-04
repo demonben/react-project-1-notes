@@ -4,23 +4,21 @@ import React, { useState } from "react";
 Modal.setAppElement("#root");
 
 function ModalNotes(props) {
-  // console.log(props)
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const [expValue, setExpValue] = useState(props.modalNotes.note.title);
   const [expValueText, setExpValueText] = useState(props.modalNotes.note.text);
 
-
   const changeNote = (value) => {
     const editNote = props.modalNotes.note;
-    editNote.title = value
-    editNote.editTime = new Date().toDateString()
-      props.onChangeNote(editNote);
-  }
+    editNote.title = value;
+    editNote.editTime = new Date().toDateString();
+    props.onChangeNote(editNote);
+  };
   const changeNoteText = (value) => {
     const editNoteText = props.modalNotes.note;
     editNoteText.text = value;
-    editNoteText.editTime = new Date()+'';
+    editNoteText.editTime = new Date() + "";
     props.onChangeNote(editNoteText);
   };
 

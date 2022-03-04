@@ -12,17 +12,17 @@ class UserForm extends Component {
   formSubmit(event) {
     event.preventDefault();
     this.props.callback(this.state.text, this.state.title);
-    
+
     this.setState({
-      text : "",
-    title : ""})
-    
+      text: "",
+      title: "",
+    });
   }
   changeInput(value) {
     this.setState({ text: value, title: this.state.title });
   }
   changeInputTitle(value) {
-    this.setState({ title: value,text:this.state.text });
+    this.setState({ title: value, text: this.state.text });
   }
   render() {
     return (
@@ -36,8 +36,10 @@ class UserForm extends Component {
                   name="title"
                   id="title"
                   value={this.state.title}
-                  onChange={(event) => this.changeInputTitle(event.target.value)}
-                ></input  >
+                  onChange={(event) =>
+                    this.changeInputTitle(event.target.value)
+                  }
+                />
               </label>
             </div>
           </div>
