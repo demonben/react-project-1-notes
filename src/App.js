@@ -2,6 +2,7 @@ import "./App.css";
 import React from "react";
 import UserForm from "./components/UserForm";
 import ListNote from "./components/ListNote";
+import Header from "./components/Header";
 
 class App extends React.Component {
   constructor(props) {
@@ -47,6 +48,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <Header />
         <UserForm
           callback={(text, title) => {
             this.addNote(text, title);

@@ -30,8 +30,9 @@ class UserForm extends Component {
         <form onSubmit={(event) => this.formSubmit(event)}>
           <div>
             <div>
-              <label htmlFor="title">
+              <label className="lable" htmlFor="title">Title</label>
                 <input
+                  placeholder="your title..."
                   type="text"
                   name="title"
                   id="title"
@@ -40,23 +41,25 @@ class UserForm extends Component {
                     this.changeInputTitle(event.target.value)
                   }
                 />
-              </label>
+              
             </div>
           </div>
 
           <div>
-            <label htmlFor="name">
+            <label className="lable" htmlFor="text">Text</label>
               <textarea
+                placeholder="your text..."
                 type="text"
-                name="name"
-                id="name"
+                id="text"
                 value={this.state.text}
                 onChange={(event) => this.changeInput(event.target.value)}
               ></textarea>
-            </label>
+            
           </div>
           <div>
-            <button type="submit">Add</button>
+            <button className="add-note" type="submit">
+              Add
+            </button>
           </div>
         </form>
       </div>
